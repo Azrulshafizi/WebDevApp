@@ -1,18 +1,29 @@
 {% extends "base.html" %}
 {% block title %}Library Loan System - Home{% endblock %}
 
-{% block content %}<body style="background-color:red; color:white">
+{% block content %}<body >
+<div><div class="column" style="float: left;
+  width: 50%;">
 <h1 class="display-4" style="font-family:lugo">Bata</h1>
 <p>Hello world!</p>
 <img src="{('static', 'img/shoes.jpg' }}" alt="image">
  <div class="img-div" style="image: url('{{ 'img/shoes.jpg' }}');">
  </div>
-
+</div>
+    <div class="column" style="float: right;
+  width: 50%;">
 <h1> Benefit of Member</h1>
 <p>earn up to 250 to redeem $12.50
 enjoy 10% for your next purchase (one-time redeem)
     enjoy birthday month discount(silver -15%, gold-20%,platinum-25%)
 </p>
+        </div>
+    </div>
+<div style="background-color: white;margin-top:500px" >
+    <h1 style="color: black; display:flex; justify-content: center">
+        Category
+    </h1>
+</div>
 </body>
 
 {% endblock %}
