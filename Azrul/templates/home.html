@@ -1,11 +1,22 @@
 {% extends "base.html" %}
 {% block title %}Library Loan System - Home{% endblock %}
 
-{% block content %}<body >
-<div><div class="column" style="float: left;
+{% block content %}
+<header style="position: relative;
+  height: 500px;
+  background: red;
+color:white;width:100%">
+<svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="-300 0 950 270"  style="  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;">
+    <path d="M-314,267 C105,364 400,100 812,279" fill="none" stroke="white" stroke-width="120" stroke-linecap="round"/>
+  </svg>
+
+<div style="background-color: red"><div class="column" style="float: left;
   width: 50%;">
 <h1 class="display-4" style="font-family:lugo">Bata</h1>
-<p>Hello world!</p>
+
 <img src="{('static', 'img/shoes.jpg' }}" alt="image">
  <div class="img-div" style="image: url('{{ 'img/shoes.jpg' }}');">
  </div>
@@ -13,17 +24,21 @@
     <div class="column" style="float: right;
   width: 50%;">
 <h1> Benefit of Member</h1>
-<p>earn up to 250 to redeem $12.50
-enjoy 10% for your next purchase (one-time redeem)
-    enjoy birthday month discount(silver -15%, gold-20%,platinum-25%)
-</p>
-        </div>
+        <ul>
+            <li>earn up to 250 to redeem $12.50</li>
+            <li>enjoy 10% for your next purchase (one-time redeem)</li>
+            <li>enjoy birthday month discount(silver -15%, gold-20%,platinum-25%)</li>
+        </ul>
+        <button>Sign Up</button>
+
     </div>
-<div style="background-color: white;margin-top:500px" >
+    </div>
+    </header>
+<div  >
     <h1 style="color: black; display:flex; justify-content: center">
         Category
     </h1>
 </div>
-</body>
+
 
 {% endblock %}
