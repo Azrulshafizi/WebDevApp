@@ -21,35 +21,35 @@
 </head>
 
 <body>
-<script>
-  function toggleMode() {
-    const currentMode = document.documentElement.getAttribute('data-mode');
-    const newMode = currentMode === 'light-mode' ? 'dark-mode' : 'light-mode';
+<!--<script>-->
+<!--  function toggleMode() {-->
+<!--    const currentMode = document.documentElement.getAttribute('data-mode');-->
+<!--    const newMode = currentMode === 'light-mode' ? 'dark-mode' : 'light-mode';-->
 
-    fetch('/toggle-mode', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `mode=${newMode}`
-    })
-    .then(response => {
-      if (response.ok) {
-        document.documentElement.setAttribute('data-mode', newMode);
-      } else {
-        console.error('Failed to toggle mode:', response.status);
-      }
-    })
-    .catch(error => console.error('Failed to toggle mode:', error));
-  }
-</script>
-<div class="container">
-  <button class="btn btn-primary" onclick="toggleMode()">Toggle Mode</button>
-  <!-- Rest of your HTML content -->
-</div>
-<script>
-  function toggleMode() {
-    document.documentElement.classList.toggle('dark-mode');
-  }
-</script>
+<!--    fetch('/toggle-mode', {-->
+<!--      method: 'POST',-->
+<!--      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },-->
+<!--      body: `mode=${newMode}`-->
+<!--    })-->
+<!--    .then(response => {-->
+<!--      if (response.ok) {-->
+<!--        document.documentElement.setAttribute('data-mode', newMode);-->
+<!--      } else {-->
+<!--        console.error('Failed to toggle mode:', response.status);-->
+<!--      }-->
+<!--    })-->
+<!--    .catch(error => console.error('Failed to toggle mode:', error));-->
+<!--  }-->
+<!--</script>-->
+<!--<div class="container">-->
+<!--  <button class="btn btn-primary" onclick="toggleMode()">Toggle Mode</button>-->
+<!--  &lt;!&ndash; Rest of your HTML content &ndash;&gt;-->
+<!--</div>-->
+<!--<script>-->
+<!--  function toggleMode() {-->
+<!--    document.documentElement.classList.toggle('dark-mode');-->
+<!--  }-->
+<!--</script>-->
  {% block navbar %}
     {% include 'includes/_navbar.html' %}
  {% endblock %}

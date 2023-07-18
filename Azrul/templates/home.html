@@ -4,7 +4,7 @@
 {% block content %}
 <header style="position: relative;
   height: 500px;
-  background: red;
+  background: blue;
 color:white;width:100%; padding:0px">
 <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="-300 0 950 270"  style="  position: absolute;
   bottom: 0;
@@ -15,7 +15,7 @@ color:white;width:100%; padding:0px">
 
 <div style="background-color: red">
     <div class="column" style="float: left; width: 50%;">
-<h1 class="display-4" style="font-family:lugo">Bata</h1>
+<h1 class="display-4" style="font-family:lugo">ShiftWalk</h1>
 
 <img src="{{ user_image }}" alt="Image" height="350px" width="550px">
 
@@ -27,6 +27,7 @@ color:white;width:100%; padding:0px">
             <li>earn up to 250 to redeem $12.50</li>
             <li>enjoy 10% for your next purchase (one-time redeem)</li>
             <li>enjoy birthday month discount(silver -15%, gold-20%,platinum-25%)</li>
+            <li>Lifetime Membership</li>
         </ul>
         <button>Sign Up</button>
 
@@ -40,7 +41,9 @@ color:white;width:100%; padding:0px">
     <div style=" margin: auto;
   width: 90%;
   border: 3px solid green;
-  padding: 10px;"></div>
+  padding: 10px;">
+        <img src="{{ promo }}" alt="Image" height="350px" width="90%">
+    </div>
     <h1 style="color: black; display:flex; justify-content: center">
         Category
     </h1>
@@ -50,16 +53,20 @@ color:white;width:100%; padding:0px">
   padding: 10px;">
         <div class="column" style="display:flex;float:left; width: 25%;height:240px; width:30%;border-style: solid">
             <h2>Ladies</h2>
+            <br>
+            <img src="{{ user_image1 }}" alt="Image" height="350px" width="550px">
         </div>
         <div class="column" style="display:flex;float:left; justify-content: center;width:30%;border-style: solid">
             <h2>
                 Mens
-            </h2>
+            </h2><br>
+            <img src="{{ user_image2 }}" alt="Image" height="350px" width="550px">
         </div>
         <div class="column" style="display:flex; float:left;width: 30%;height:240px;border-style: solid">
             <h2>
                 Childrens
-            </h2>
+            </h2><br>
+            <img src="{{ user_image3 }}" alt="Image" height="350px" width="550px">
         </div>
 
     </div>
