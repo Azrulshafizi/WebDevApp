@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for,flash
 import os
-from form import CreateUserForm
+from form import CreateUserForm,loginpage
 import shelve, member
 app = Flask(__name__)
 
@@ -39,6 +39,12 @@ def create_user():
         db.close()
         return redirect(url_for('retrieve_users'))
     return render_template('CreateMember.html', form=create_user_form)
+
+@app.route('/login', methods=['GET'])
+def login():
+    login = loginpage(request.form)
+
+    return render_template('login.html',form=login)
 
 @app.route('/admin')
 def admin():

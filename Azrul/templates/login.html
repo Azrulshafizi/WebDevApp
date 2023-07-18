@@ -1,0 +1,51 @@
+{% extends "base.html"%}
+{% block title %}Library Loan System - Create User{% endblock %}
+{% block content %}
+{% from "includes/formhelper.html" import render_field %}
+
+
+
+<!--    <template>-->
+<!--  <div>-->
+<!--    <b-avatar variant="secondary"></b-avatar>-->
+<!--    <b-avatar variant="primary"></b-avatar>-->
+<!--    <b-avatar variant="dark"></b-avatar>-->
+<!--    <b-avatar variant="light"></b-avatar>-->
+<!--    <b-avatar variant="success"></b-avatar>-->
+<!--    <b-avatar variant="danger"></b-avatar>-->
+<!--    <b-avatar variant="warning"></b-avatar>-->
+<!--    <b-avatar variant="info"></b-avatar>-->
+<!--  </div>-->
+<!--</template>-->
+
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <h1>Login</h1>
+        <img src="{{ url_for('static', filename='user-circle.png') }}"
+    class="image"/>
+    <form method="post" action="">
+    <div class="form-group">
+         {{ render_field(form.phonenumber, class="form-control") }}
+    </div>
+    <div class="form-group">
+         {{ render_field(form.passwrd, class="form-control") }}
+    </div>
+        <a href="/CreateMember">forgot password?</a><br>
+        <button type="button" class="btn">Login</button>
+</form>
+    </div>
+
+    <div class="col">
+      <h1> Benefit of Member</h1>
+        <ul>
+            <li>earn up to 250 to redeem $12.50</li>
+            <li>enjoy 10% for your next purchase (one-time redeem)</li>
+            <li>enjoy birthday month discount(silver -15%, gold-20%,platinum-25%)</li>
+            <li>Lifetime Membership</li>
+        </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -10,6 +10,6 @@ class CreateUserForm(Form):
     gender = SelectField('Gender', [validators.DataRequired()],choices=[('','Select'),('F','Female'),('M','Male')],default='')
     phonenumber = TelField("Phone Number",[validators.Length(min=8,max=8), validators.data_required()])
 
-class loginpage():
+class loginpage(Form):
     phonenumber = TelField("Phone Number",[validators.Length(min=8,max=8), validators.data_required()])
-    passwrd = fld.PasswordField(validators=[validators.InputRequired()])
+    passwrd = fld.PasswordField('Password')
