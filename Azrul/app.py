@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for,flash
 import os
 from form import CreateUserForm,loginpage
-import shelve, member
+import shelve, member, random
+# from twilio.rest import Client
 app = Flask(__name__)
 
 image_folder = os.path.join('static','image')
@@ -11,12 +12,7 @@ app.config['UPLOAD_FOLDER'] = image_folder
 @app.route('/')
 
 def home():
-    img = os.path.join(app.config['UPLOAD_FOLDER'], 'shoes.png')
-    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'ladies.png')
-    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'mens.png')
-    img4 = os.path.join(app.config['UPLOAD_FOLDER'], 'kids.png')
-    promo = os.path.join(app.config['UPLOAD_FOLDER'], 'promotion.jpg')
-    return render_template("home.html", user_image=img,user_image1=img2,user_image2=img3,user_image3=img4, promo=promo)
+    return render_template("home.html")
 
 @app.route('/CreateMember', methods=['GET','POST'])
 def create_user():
@@ -29,7 +25,8 @@ def create_user():
         except:
             print("Error in retrieving Users from storage.db.")
         user = member.member(create_user_form.first_name.data,
-                         create_user_form.last_name.data)
+                         create_user_form.last_name.data,create_user_form.email.data,create_user_form.new_password.data,
+                             create_user_form.confirm_password.data,create_user_form.gender.data,None,None)
         users_dict[user.get_user_id()] = user
         db['Users'] = users_dict
         # Test codes
@@ -39,6 +36,28 @@ def create_user():
         db.close()
         return redirect(url_for('retrieve_users'))
     return render_template('CreateMember.html', form=create_user_form)
+
+# def getOTP():
+#     number = request.form[]
+#     getOTPApi(number)
+#     return number
+#
+# def generateOTP():
+#     return random.randrange(100000,999999)
+#
+# def getOTPApi(number):
+#     account_sid = 'ACf9b4b88a7f93c743ee05e26ea74363ad'
+#     auth_token = '5b29488742a7a0ba954479380dd5bcae'
+#     client = Client(account_sid,auth_token)
+#     otp = generateOTP()
+#     body = "your OTP is" +str(otp)
+#     message = Client.messages.create(from='+6582054349',body=body,to=number)
+#
+#
+#     if message.sid:
+#         return True
+#     else:
+#         return False
 
 @app.route('/login', methods=['GET'])
 def login():
