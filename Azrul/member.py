@@ -1,10 +1,13 @@
 class member:
     count =0
-    def __init__(self,first_name, last_name):
+    def __init__(self,first_name, last_name, password,date_of_birth, phone_number,):
         member.count+= 1
         self.__user_id = ""
         self.__first_name = first_name
         self.__last_name = last_name
+        self.__password = password
+        self.__date_of_birth = date_of_birth
+        self.__phone_number = phone_number
 
     def get_user_id(self):
         return self.__user_id

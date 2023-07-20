@@ -31,28 +31,14 @@
     </div>
     <div class="form-group">
          {{ render_field(form.passwrd, class="form-control") }}
-        <input type="password" class="form-control" id="password" placeholder="Enter password">
-        <input type="checkbox" id="showPassword"> Show Password
-
     </div>
-        <script>
-        $(document).ready(function() {
-  // Get the elements
-  const passwordInput = $("#password");
-  const showPasswordCheckbox = $("#showPassword");
 
-  // Function to toggle password visibility
-  function togglePasswordVisibility() {
-    const passwordType = passwordInput.attr("type");
-    const newType = passwordType === "password" ? "text" : "password";
-    passwordInput.attr("type", newType);
-  }
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="password" placeholder="Password">
+                </div>
+            </div>
 
-  // Bind the toggle function to the checkbox change event
-  showPasswordCheckbox.on("change", function() {
-    togglePasswordVisibility();
-  });
-});</script>
         <a href="/CreateMember">forgot password?</a><br>
         <button type="button" class="btn btn-success">Login</button>
 </form>
@@ -60,6 +46,7 @@
     </div>
 
     <div class="col">
+
       <h1> Benefit of Member</h1>
         <ul>
             <li>earn up to 250 to redeem $12.50</li>
