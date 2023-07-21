@@ -1,41 +1,59 @@
-from flask import Flask, render_template, request, redirect, url_for,flash
-import os
-from form import CreateUserForm,loginpage
-import shelve, member, random
-# from twilio.rest import Client
+from flask import Flask, render_template, request, redirect, url_for
+from form import CreateMemberForm
+from login import loginpage
+import shelve, member
+
+
 app = Flask(__name__)
 
-image_folder = os.path.join('static','image')
-
-app.config['UPLOAD_FOLDER'] = image_folder
 
 @app.route('/')
 
 def home():
     return render_template("home.html")
 
+@app.route('/login')
+def login():
+    login = loginpage(request.form)
+
+    return render_template('login.html',form=login)
+
 @app.route('/CreateMember', methods=['GET','POST'])
 def create_user():
-    create_user_form = CreateUserForm(request.form)
-    if request.method == 'POST' and create_user_form.validate():
-        users_dict = {}
+    create_member_form = CreateMemberForm(request.form)
+    if request.method == 'POST' and create_member_form.validate():
+        member_dict = {}
         db = shelve.open('storage.db', 'c')
         try:
-            users_dict = db['Users']
+            member_dict = db['member']
         except:
             print("Error in retrieving Users from storage.db.")
-        user = member.member(create_user_form.first_name.data,
-                         create_user_form.last_name.data,create_user_form.email.data,create_user_form.new_password.data,
-                             create_user_form.confirm_password.data,create_user_form.gender.data,None,None)
-        users_dict[user.get_user_id()] = user
-        db['Users'] = users_dict
+
+        # eList = []
+        # iList = []
+        # for key in member_dict:
+        #     email = member_dict.get(key)
+        #     eList.append(key)
+        #     for i in member_dict:
+        #         nid = member_dict[i].get_user_id()
+        #         iList.append(nid)
+        #         if str(email) == str(member_dict[i].get_email()):
+        #              global typo
+        #              typo = "Email already in use"
+        #              return render_template('CreateMember.html', typo=typo, form=create_user_form)
+        #         break
+        members = member.member(create_member_form.first_name.data,
+                         create_member_form.last_name.data,create_member_form.email.data,create_member_form.new_password.data,
+                             create_member_form.dob.data,create_member_form.phonenumber.data,create_member_form.gender.data)
+        member_dict[members.get_user_id()] = members
+        db['member'] = member_dict
         # Test codes
-        users_dict = db['Users']
-        user = users_dict[user.get_user_id()]
-        print(user.get_first_name(), user.get_last_name(), "was stored in storage.db successfully with user_id == ",user.get_user_id())
+        member_dict = db['member']
+        members = member_dict[members.get_user_id()]
+        print(members.get_first_name(), members.get_last_name(), "was stored in storage.db successfully with user_id == ", members.get_user_id())
         db.close()
-        return redirect(url_for('retrieve_users'))
-    return render_template('CreateMember.html', form=create_user_form)
+        return redirect(url_for('login'))
+    return render_template('CreateMember.html', create_member_form=create_member_form)
 
 # def getOTP():
 #     number = request.form[]
@@ -59,15 +77,23 @@ def create_user():
 #     else:
 #         return False
 
-@app.route('/login', methods=['GET'])
-def login():
-    login = loginpage(request.form)
 
-    return render_template('login.html',form=login)
 
 @app.route('/admin')
 def admin():
     return render_template('admin.html')
+
+@app.route('/retrieveMember')
+def retrieveMember():
+    member_dict = {}
+    db = shelve.open('storage.db', 'r')
+    member_dict = db['member']
+    db.close()
+    member_list = []
+    for key in member_dict:
+        member = member_dict.get(key)
+        member_list.append(member)
+    return render_template('retrieveMember.html',count=len(member_list), member_list=member_list)
 
 
 if __name__ == '__main__':

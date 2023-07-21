@@ -1,32 +1,39 @@
-*<nav class="navbar navbar-expand-sm bg-danger navbar-dark justify-content-center">
- <!-- Brand -->
-  <a class="navbar-brand" href="/" style="font-family: lugo; font-size: 30; font-weight:bold">ShiftWalk</a>
- <!-- Links -->
-   <ul class="navbar-nav">
-    <li class="nav-item">
-     <a class="nav-link" href="/">Home</a>
-    </li>
- <!-- Dropdown -->
-   <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
- Manage Users
- </a>
-   <div class="dropdown-menu">
-    <a class="dropdown-item" href="/login">Create User</a>
-    <a class="dropdown-item" href="#">Retrieve Users</a>
-   </div>
- </li>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style=" padding:0;">
+  <div class="container-fluid" style="background-color: #51C4D3; padding:15px; ">
+      <a class="navbar-brand" style="color:#132C33;" href="#">ShiftWalk</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" style="color:#132C33;" aria-current="page" href="#">New arrival</a>
+        </li>
 
- <li class="nav-item">
- <a class="nav-link" href="/contactUs">Contact Us</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:#132C33;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Mens</a></li>
+            <li><a class="dropdown-item" href="#">Ladies</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Childrems</a></li>
+          </ul>
+        </li>
+       <li class="nav-item">
+          <a class="nav-link" style="color:#132C33;" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:#132C33;" href="admin">Staff</a>
+        </li>
 
- </li>
-    <li>
-     <a class="nav-link" href="/admin">Staff</a>
-    </li>
- </ul>
-
-<
- <button onclick="/CreateMember">Login</button>
-
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" style="color:#132C33;" type="submit">Search</button>
+      </form>
+     <button class="btn btn-outline-success" style="color:#132C33;" type="submit"><a href="/login">Log In</a></button>
+    </div>
+  </div>
 </nav>

@@ -1,10 +1,11 @@
 class member:
     count =0
-    def __init__(self,first_name, last_name, password,date_of_birth, phone_number, gender, postal_code, address):
+    def __init__(self, first_name, email, last_name, password,date_of_birth, phone_number, gender):
         member.count+= 1
         self.__user_id = member.count
         self.__first_name = first_name
         self.__last_name = last_name
+        self.__email = email
         self.__password = password
         self.__date_of_birth = date_of_birth
         self.__phone_number = phone_number
@@ -33,6 +34,8 @@ class member:
     def get_gender(self):
         return self.__gender
 
+    def get_email(self):
+        return self.__email
 
 
     def set_user_id(self, user_id):
@@ -48,10 +51,13 @@ class member:
         self.__password =password
 
     def set_date_of_birth(self,date_of_birth):
-        self.__date_of_birth =date_of_birth
+        self.__date_of_birth = date_of_birth
 
     def set_phone_number(self, phone_number):
         self.__phone_number = phone_number
 
     def set_gender(self, gender):
         self.__gender = gender
+
+    def set_email(self, email):
+        self.__email = email
