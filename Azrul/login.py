@@ -1,6 +1,7 @@
-from wtforms import Form, StringField, SelectField, validators, EmailField,TelField, DateField
+from wtforms import Form, StringField, SelectField, validators, EmailField,TelField, DateField,SubmitField
 import wtforms.fields as fld
-
-class loginpage(Form):
+from flask_wtf import FlaskForm
+class loginpage(FlaskForm):
     phonenumber = TelField("Phone Number",[validators.Length(min=8,max=8), validators.data_required()])
-    passwrd = fld.PasswordField('Password')
+    password = fld.PasswordField('Password')
+    submit = SubmitField(label="Login now")

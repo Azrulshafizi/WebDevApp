@@ -1,0 +1,47 @@
+{% extends "base.html"%}
+{% block title %}Library Loan System - Profile{% endblock %}
+{% block content %}
+<div class=" d-flex justify-content-center" style="margin-top:50px">
+<div class="border rounded" style="width:60%">
+
+<h1>Profile</h1>
+    {% for member in member_list %}
+    {% if member == id $}
+<p>name: { member.get_first_name() }} {{  member.get_last_name()}}</p>
+<a>transaction history</a>
+    <hr>
+    <h2>Personal information</h2>
+
+    <p>phone  number</p> <p>region</p>
+    <p>email</p>         <p>Date of Birth</p>
+    <p>Gender</p>
+
+    {% else %}
+    <p> no user</p>
+    {% endif %}
+    {% endfor %}
+
+
+
+    <table>
+ <tbody>
+
+
+
+ <tr>
+
+ <td></td>
+
+ <td></td>
+
+
+
+
+ </tr>
+ {% endfor %}
+
+ </tbody>
+</table>
+</div>
+</div>
+{% endblock %}

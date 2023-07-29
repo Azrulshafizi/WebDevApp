@@ -5,19 +5,6 @@
 
 
 
-<!--    <template>-->
-<!--  <div>-->
-<!--    <b-avatar variant="secondary"></b-avatar>-->
-<!--    <b-avatar variant="primary"></b-avatar>-->
-<!--    <b-avatar variant="dark"></b-avatar>-->
-<!--    <b-avatar variant="light"></b-avatar>-->
-<!--    <b-avatar variant="success"></b-avatar>-->
-<!--    <b-avatar variant="danger"></b-avatar>-->
-<!--    <b-avatar variant="warning"></b-avatar>-->
-<!--    <b-avatar variant="info"></b-avatar>-->
-<!--  </div>-->
-<!--</template>-->
-
 <div class="border border-success p-2 mb-2 mx-auto p-2" style="width: 1300px; margin-top:30px">
 <div class="container text-center" xmlns="http://www.w3.org/1999/html">
   <div class="row">
@@ -27,33 +14,49 @@
     class="image"/>
     <form method="post" action="">
     <div class="form-group">
-         {{ render_field(form.phonenumber, class="form-control") }}
+         {{ render_field(login.phonenumber, class="form-control") }}
     </div>
     <div class="form-group">
-         {{ render_field(form.passwrd, class="form-control") }}
+         {{ render_field(login.password, class="form-control") }}
     </div>
-
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Password">
-                </div>
-            </div>
-
-        <a href="/CreateMember">forgot password?</a><br>
-        <button type="button" class="btn btn-success">Login</button>
+    <p></p>
+        <a href="/forgotpassword">forgot password?</a><br>
+        {{ render_field(login.submit) }}
 </form>
+    </div >
 
-    </div>
-
-    <div class="col">
+    <div class="col" style="background:#51C4D3;">
 
       <h1> Benefit of Member</h1>
-        <ul>
-            <li>earn up to 250 to redeem $12.50</li>
-            <li>enjoy 10% for your next purchase (one-time redeem)</li>
-            <li>enjoy birthday month discount(silver -15%, gold-20%,platinum-25%)</li>
-            <li>Lifetime Membership</li>
-        </ul>
+
+        <div class="container overflow-hidden text-center">
+  <div class="row gy-5">
+    <div class="col-6">
+      <div class="p-3">
+          <img src="{{ url_for('static', filename='point.png') }}" height="60px">
+    <p>earn up to 250 to redeem $12.50</p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">
+          <img src="{{ url_for('static', filename='anniversary.png') }}"  height="60px">
+    <p>Enjoy 10% Anniversary</p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">
+          <img src="{{ url_for('static', filename='birthday.png') }}"  height="60px">
+    <p>enjoy birthday month discount(silver -15%, gold-20%,platinum-25%)</p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">   <img src="{{ url_for('static', filename='lifetime.png') }}"  height="60px">
+    <p>Lifetime Membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
         <a href="/CreateMember"><button type="button" class="btn btn-success" >Sign Up Now</button></a>
     </div>
   </div>

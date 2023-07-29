@@ -1,7 +1,8 @@
 {% extends "base.html" %}
-{% block title %}Library Loan System - Home{% endblock %}
-
+{% block title %}Library Loan System - Retrieve Users{% endblock %}
 {% block content %}
+
+
 <header style="position: relative;
   height: 500px;
   background: #51C4D3;
@@ -22,14 +23,15 @@ color:132C33;width:100%; padding:0px">
 </div>
     <div class="column" style="float: right;
   width: 50%;">
+        <h1>Welcome {{ member.get_first_name() }} {{  member.get_last_name()}}</h1>
 <h1> Benefit of Member</h1>
-        <ul>
+        <ul>1`
             <li>earn up to 250 to redeem $12.50</li>
             <li>enjoy 10% for your next purchase (one-time redeem)</li>
             <li>enjoy birthday month discount(silver -15%, gold-20%,platinum-25%)</li>
             <li>Lifetime Membership</li>
         </ul>
-        <button>Sign Up</button>
+
 
     </div>
     </div>
@@ -72,9 +74,4 @@ color:132C33;width:100%; padding:0px">
     </div>
   </div>
 </div>
-
-
-
-
-
 {% endblock %}

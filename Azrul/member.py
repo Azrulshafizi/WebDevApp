@@ -1,6 +1,6 @@
 class member:
     count =0
-    def __init__(self, first_name, email, last_name, password,date_of_birth, phone_number, gender):
+    def __init__(self, first_name,last_name, email, password, date_of_birth, phone_number, gender,image):
         member.count+= 1
         self.__user_id = member.count
         self.__first_name = first_name
@@ -10,8 +10,10 @@ class member:
         self.__date_of_birth = date_of_birth
         self.__phone_number = phone_number
         self.__gender = gender
+        self.__image = image
         self.__postal_code = None
         self.__address = None
+        self.__point = 100
 
     def get_user_id(self):
         return self.__user_id
@@ -37,6 +39,12 @@ class member:
     def get_email(self):
         return self.__email
 
+    def get_point(self):
+        return self.__point
+
+    def get_image(self):
+        return self.__image
+
 
     def set_user_id(self, user_id):
         self.__user_id = user_id
@@ -61,3 +69,10 @@ class member:
 
     def set_email(self, email):
         self.__email = email
+
+
+    def set_point(self, point):
+        self.__point = point
+
+    def set_image(self, image):
+        self.__image = image
