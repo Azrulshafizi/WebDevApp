@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+</style>
+
+<h1>Cart</h1>
+    <ul>
+        {% for item in cart_items %}
+            <li>
+                <span>{{ item['name'] }} - ${{ item['price'] }} x {{ item['quantity'] }} = ${{ item['price'] * item['quantity'] }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Total: ${{ total_price }}</h2>
+
+{% endblock %}
