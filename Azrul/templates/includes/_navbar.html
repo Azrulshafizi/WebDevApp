@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style=" padding:0;">
+ <nav class="navbar navbar-expand-lg bg-body-tertiary" style=" padding:0;">
   <div class="container-fluid" style="background-color: #51C4D3; padding:15px; ">
       <a class="navbar-brand" style="color:#132C33;" href="#">ShiftWalk</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,10 +26,21 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" style="color:#132C33;" href="admin">Staff</a>
-
         </li>
-
-
+          <li class="nav-item">
+          <a class="nav-link" style="color:#132C33;" href="profile/<int:id>/">profile</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" style="color:#132C33;" href="/CArt">success</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" style="color:#132C33;" href="/Catalogue">Product</a>
+        </li>
+          <li class="nav-item">
+          <div class="cart-icon" id="cart-icon">
+            <img src="static/image2/cart-icon.jpg" alt="Cart">
+          </div>
+        </li>
 
       </ul>
       <form class="d-flex" role="search">
@@ -37,17 +48,19 @@
         <button class="btn btn-outline-success" style="color:#132C33;" type="submit">Search</button>
       </form>
 
-        {% if member %}
-        <button class="btn btn-outline-success" style="color:#132C33;" type="submit"><a class="nav-link" style="color:#132C33;" href="profile/{{member.get_user_id()}}">Profile</a></button>
-           <button class="btn btn-outline-success" style="color:#132C33;" type="submit"><a class="nav-link" style="color:#132C33;" href="addressform/{{member.get_user_id()}}">address
-           </a></button>
-        <a href="/login"><button class="btn btn-outline-danger" style="color:#132C33;" type="submit">logout</button></a>
-            {% else %}
-        <a href="/login"><button class="btn btn-outline-success"  type="submit">Log In</button></a>
-        {% endif %}
-
-
+            <button class="btn btn-outline-success" style="color:#132C33;" type="submit"><a href="/login">Log In</a></button>
 
     </div>
   </div>
 </nav>
+
+
+ <style>
+     .cart-icon img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+ </style>
+

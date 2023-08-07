@@ -1,8 +1,7 @@
 class member:
     count =0
-    def __init__(self, first_name,last_name, email, password, date_of_birth, phone_number, gender,image,address):
+    def __init__(self, first_name,last_name, email, password, date_of_birth, phone_number, gender,image):
         member.count+= 1
-        self.address = address
         self.__user_id = member.count
         self.__first_name = first_name
         self.__last_name = last_name
@@ -78,6 +77,8 @@ class member:
     def set_image(self, image):
         self.__image = image
 
+
+
 class Address:
     def __init__(self,  country, company, address, postal_code):
         # super().__init__(first_name,last_name, email, password, date_of_birth, phone_number, gender,image)
@@ -117,3 +118,4 @@ class Address:
 
     def get_postal_code(self):
         return self.postal_code
+

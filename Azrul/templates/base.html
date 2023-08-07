@@ -5,6 +5,22 @@
 
  <title>{% block title %}{% endblock %}</title>
 
+
+    <div class="sidebar-cart" id="sidebar-cart">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="close-icon" id="close-icon">&times;</span>
+        </div>
+    <ul>
+         {% for product in cart_list %}
+            <li>{{ product.get_product_name() }} - ${{ product.get_product_price() }}</li>
+            {% endfor %}
+    </ul>
+    <div class="cart-actions">
+        <a class="close-cart-btn" id="close-cart-btn" href="/CArt">Close Cart &amp; Continue Shopping</a>
+    </div>
+</div>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <style>
 .light-mode {
@@ -16,6 +32,36 @@
   background-color: #000;
   color: #fff;
 }
+
+
+
+
+
+.sidebar-cart {
+    width: 300px;
+    background-color: #f4f4f4;
+    position: fixed;
+    right: -300px;
+    top: 0;
+    height: 100%;
+    padding: 20px;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-icon {
+    font-size: 24px;
+    cursor: pointer;
+
+   }
 </style>
 
 </head>
@@ -64,6 +110,26 @@
 src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
  <script
 src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+ <script>
+        const cartIcon = document.getElementById('cart-icon');
+        const sidebarCart = document.getElementById('sidebar-cart');
+        const closeIcon = document.getElementById('close-icon');
+
+        cartIcon.addEventListener('click', () => {
+        sidebarCart.style.right = '0';
+        });
+
+        closeIcon.addEventListener('click', () => {
+        sidebarCart.style.right = '-300px';
+        const closeCartBtn = document.getElementById('close-cart-btn');
+});
+
+
+
+    </script>
+
 
 
 <!-- Bootstrap CSS -->
